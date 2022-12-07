@@ -26,9 +26,22 @@ define('MOLLIE_FOR_PAYMATTIC_VERSION', '1.0');
 
 
 add_action('wppayform_loaded', function () {
-    // here we also need to check the payform version 
-    // as custom payment gateway is not available before 4.3.1
-    if (defined('WPPAYFORMHASPRO')) {
+
+    $paymattic_pro__path = WPPAYFORMPRO_DIR_PATH . 'wp-payment-form-pro.php';
+    $has_pro = defined('WPPAYFORMHASPRO');
+
+    $currentVersion = '';
+
+    if ($has_pro) {
+        $currentVersion = defined('WPPAYFORM_VERSION') ? WPPAYFORM_VERSION : 'NO';
+    } else {
+        $plugin = get_plugin_data($paymattic_pro__path);
+        $currentVersion = $plugin['Version'];
+    }
+
+    // here we also need to check the paymattic version 
+    // as custom payment gateway is not available before 4.3.2
+    if (defined('WPPAYFORMHASPRO') && version_compare($currentVersion, '4.3.2', '>=')) {
         if (!class_exists('MollieForPaymattic\MollieProcessor')) {
             require_once MOLLIE_FOR_PAYMATTIC_DIR . '/API/MollieProcessor.php';
             (new MollieForPaymattic\API\MollieProcessor())->init();
@@ -37,7 +50,7 @@ add_action('wppayform_loaded', function () {
         add_action('admin_notices', function () {
             if (current_user_can('activate_plugins')) {
                 echo '<div class="notice notice-error"><p>';
-                echo __('Please install Paymattic  and Paymattic Pro to use !', 'mollie-for-paymattic');
+                echo __('Please install Paymattic  and Paymattic Pro to use mollie-for-paymattic!', 'mollie-for-paymattic');
                 echo '</p></div>';
             }
         });
