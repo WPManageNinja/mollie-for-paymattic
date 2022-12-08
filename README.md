@@ -49,6 +49,6 @@ Make sure you get api key settings as you set keys on global fields.
 
 ![get_api_keys](api_keys.png)
 
-resst implement all the function as given on <b>settings/settings.php</b>
+rest, implement all the function as given on <b>settings/settings.php</b>
 
 
