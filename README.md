@@ -28,6 +28,23 @@ necessary hooks in the construct menthod.
 </br>
 ![construct_of_element_file](construct_of_element_file.png)
 
+Go through the <b>settings/MollieElement.php</b> and do exactly by replacing your custom payment name.
+
+### settings file
+settings.php file where you give all necessary global fileds to save the payments credentials: live/test public/secret keys to make your payment module actually works. This file need to extend the basepayment method of paymattic. implements all the function by replacing yours.
+
+In this file where you need to be most careful is the <b>globalFields</b> function.
+
+![globalFields](global_fields.png)
+
+There are four field types whichs are not changeable
+- test_secret_key
+- test_pub_key
+- live_secret_key
+- live_pub_key
+
+
+
 
 
 
