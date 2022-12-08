@@ -37,7 +37,7 @@ In this file where you need to be most careful is the <b>globalFields</b> functi
 
 ![globalFields](global_fields.png)
 
-There are four/two(in some case) credential field types whichs are not changeable.
+There are four, two(in some case, as here in mollie) credential field <b>type</b> whichs are not changeable.
 - test_secret_key
 - test_pub_key
 - live_secret_key
