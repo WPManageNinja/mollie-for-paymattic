@@ -25,7 +25,9 @@ To make your custom payment compatible and visible in paymattic you need to prov
 #### Element file
 Element.php file where you make your custom payment as a paymattic component. This file basically extend the BaseComponent file of Paymattic and add the 
 necessary hooks in the construct menthod.
+
 </br>
+
 ![construct_of_element_file](construct_of_element_file.png)
 
 Go through the <b>settings/MollieElement.php</b> and do exactly by replacing your custom payment name.
@@ -34,6 +36,7 @@ Go through the <b>settings/MollieElement.php</b> and do exactly by replacing you
 settings.php file where you give all necessary global fileds to save the payments credentials: live/test public/secret keys to make your payment module actually works. This file need to extend the basepayment class of paymattic. implements all the function by replacing yours.
 
 In this file where you need to be most careful is the <b>globalFields</b> function.
+
 </br>
 
 ![globalFields](global_fields.png)
