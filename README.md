@@ -34,6 +34,7 @@ Go through the <b>settings/MollieElement.php</b> and do exactly by replacing you
 settings.php file where you give all necessary global fileds to save the payments credentials: live/test public/secret keys to make your payment module actually works. This file need to extend the basepayment class of paymattic. implements all the function by replacing yours.
 
 In this file where you need to be most careful is the <b>globalFields</b> function.
+</br>
 
 ![globalFields](global_fields.png)
 
