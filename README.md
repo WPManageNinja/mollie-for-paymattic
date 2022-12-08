@@ -17,7 +17,15 @@ In the main plugin file of the custom payment you need to do some mandatory chec
 Go through the <b>mollie-for-paymattic.php</b> file to get it clear.
 
 
+### settings
+To make your custom payment compatible and visible in paymattic you need to provide desired settings in a specific way. Setting constructed with two defferent file
+- Element.php
+- Settings.php
 
+#### Element.php
+Element.php file where you make your custom payment as a paymattic component. This file basically extend the BaseComponent file of Paymattic and add the necessary hooks in the construct menthod.
+
+</br>
 
 
 
