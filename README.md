@@ -37,15 +37,18 @@ In this file where you need to be most careful is the <b>globalFields</b> functi
 
 ![globalFields](global_fields.png)
 
-There are four field types whichs are not changeable
+There are four/two(in some case) credential field types whichs are not changeable.
 - test_secret_key
 - test_pub_key
 - live_secret_key
 - live_pub_key
 
+But field key of credential fields you can give as your payment module requires. ex: for mollie you need <b>test_api_key</b> and <b>live_api_key</b>.
 
+Make sure you get api key settings as you set keys on global fields.
 
+![get_api_keys](api_keys.png)
 
-
+resst implement all the function as given on <b>settings/settings.php</b>
 
 
