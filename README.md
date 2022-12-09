@@ -64,7 +64,7 @@ Make sure you try to access same key in (get/validate api) methods as you set ke
 
 ![get_api_keys](globalFields.png)
 
-rest, implement all the methods as given on <b>settings/settings.php</b> and replace with your necessary settings but keep the format same.
+rest, implement all the methods as given on <b>settings/MollieSettings.php</b> and replace with your necessary settings but keep the format same.
 
 ### API directory
 To process payments you needs api interaction and in some payment gateway you need ipn setup.
@@ -88,7 +88,7 @@ All the primary and main payment process happens in this file.
 - markAsPaid
 - validateSubscription (If your payment have subscription option it will validate the subscription)
 
-Implements all the methods of MollieProcessor.php as exact, you may need to make slight changes only where you find mollie is indicated.
+Implements all the methods of <b>API/MollieProcessor.php</b> as exact, you may need to make slight changes only where you find mollie is indicated.
 
 #### IPN.php file
 Most of the payment mehtod require ipn(Instant payment notification) setup to make payment smooth, secure and reliable such as paypal, mollie , stripe uses ipn.
