@@ -17,7 +17,7 @@ In the main plugin file of the custom payment you need to do some mandatory chec
 Go through the <b>mollie-for-paymattic.php</b> file to get it clear.
 
 
-### settings
+### settings directory
 To make your custom payment compatible and visible in paymattic you need to provide desired settings in a specific way. Setting constructed with two defferent file
 - Element.php
 - Settings.php
@@ -32,27 +32,31 @@ necessary hooks in the construct menthod.
 
 Go through the <b>settings/MollieElement.php</b> and do exactly by replacing your custom payment name.
 
-### settings file
+#### settings file
 settings.php file where you give all necessary global fileds to save the payments credentials: live/test public/secret keys to make your payment module actually works. This file need to extend the basepayment class of paymattic. implements all the function by replacing yours.
 
-In this file where you need to be most careful is the <b>globalFields</b> function.
+In this file where you need to be little bit more careful is the <b>globalFields</b> method.
 
 </br>
 
 ![globalFields](global_fields.png)
 
-There are four, two(in some case, as here in mollie) credential field <b>type</b> whichs are not changeable.
+There are four, two(in some case, as here in mollie) credential fields <b>type</b>.
 - test_secret_key
 - test_pub_key
 - live_secret_key
 - live_pub_key
 
+Field type must be exact same. [ex: if you need test api key/test secret key] in both case you should provide field type as test_secret_key. But you can keep field keep as you want.
+
 But field key of credential fields you can give as your payment module requires. ex: for mollie you need <b>test_api_key</b> and <b>live_api_key</b>.
 
-Make sure you get/validate api key settings with same keys as you set keys on global fields.
+Make sure you have same key in (get/validate api) methods as you set keys on global fields.
 
 ![get_api_keys](globalFields.png)
 
-rest, implement all the function as given on <b>settings/settings.php</b> and replace with your own.
+rest, implement all the methods as given on <b>settings/settings.php</b> and replace with your necessary settings but keep the format same.
 
+### API directory
+To process payments you needs api interaction
 
