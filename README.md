@@ -73,7 +73,7 @@ All the primary and main payment process happens in this file.
 - addTransactionUrl
 - choosePaymentMethod (wiil select this payment  method if selected by user)
 - makeFormPayment (start payment process by triggering handleredirect)
-- getSuccessURL (return the desired success url where use need to be redirect after successful transaction)
+- getSuccessURL (return the success url we get form formConfirmationsettings where we nned to redirect the user after successful transaction)
 - handleRedirect (take user to the payment gateway page with all necessary arguments ex: stripe checkout page)
 - handlePaid (checks if it paid or not)
 - handleRefund (handaling the refund here)
@@ -81,9 +81,18 @@ All the primary and main payment process happens in this file.
 - markAsPaid
 - validateSubscription (If your payment have subscription option it will validate the subscription)
 
-Implements all the methods as exact, you may need to make slight changes only where you find mollie is written.
+Implements all the methods of MollieProcessor.php as exact, you may need to make slight changes only where you find mollie is indicated.
 
 #### IPN.php file
-Most of the payment mehtod require ipn(Instant payment notification) setup to make payment smooth and reliable.
+Most of the payment mehtod require ipn(Instant payment notification) setup to make payment smooth, secure and reliable such as paypal, mollie , stripe uses ipn.
+
+##### methods
+- verifyIPN (after recieviing an ipn through our provided webhook it verifies if it is a real and authenticated ipn from desired payment gateway)
+- handleIpn (Handle the 
+- makeApiCall (Where it makes the api call with all the necessary authorization keys and arguments for any kind of payment api interaction)
+
+Implement all the methods of <b>API/IPN.php</b> file as usual and replace <b>mollie</b> with your cutom payment.
+
+That's it You just integrated a cutom payment module with payment. :relaxed:
 
 
