@@ -3,7 +3,9 @@ An example plugin for Paymattic payment module integrations.
 
 # procedure of integrating a custom payment module with paymattic
 Here we tried to show how to integrate a custom payment gateway with paymattic by showcasing payment gateway integration.
-As we did this demo with <b>mollie</b> payment gateway make sure you replace mollie with your custom payment in all the hooks you find throughout the files.
+As we did this demo with <b>mollie</b> payment gateway make sure you replace mollie with your <b>custom payment name </b> in all the hooks you find across all the files.
+
+ex: add_action('wppayform/form_submission_make_payment_mollie', array($this, 'makeFormPayment'), 10, 6); wiil be add_action('wppayform/form_submission_make_payment_custom_payment', array($this, 'makeFormPayment'), 10, 6);
 
 ## module structure
 - plugin file
@@ -66,19 +68,22 @@ To process payments you needs api interaction and in some payment gateway you ne
 #### process.php file
 All the primary and main payment process happens in this file.
 ##### methods
-- init
-- getPaymentMode
+- init (trigger all the necessary hooks and methods)
+- getPaymentMode 
 - addTransactionUrl
-- choosePaymentMethod
-- makeFormPayment
-- getSuccessURL
-- handleRedirect
-- handlePaid
-- handleRefund
+- choosePaymentMethod (wiil select this payment  method if selected by user)
+- makeFormPayment (start payment process by triggering handleredirect)
+- getSuccessURL (return the desired success url where use need to be redirect after successful transaction)
+- handleRedirect (take user to the payment gateway page with all necessary arguments ex: stripe checkout page)
+- handlePaid (checks if it paid or not)
+- handleRefund (handaling the refund here)
 - getLastTransaction
 - markAsPaid
-- validateSubscription
+- validateSubscription (If your payment have subscription option it will validate the subscription)
 
-All the methods are selfexplanatory, still they may need some explanation to get things more clear
+Implements all the methods as exact, you may need to make slight changes only where you find mollie is written.
+
+#### IPN.php file
+Most of the payment mehtod require ipn(Instant payment notification) setup to make payment smooth and reliable.
 
 
