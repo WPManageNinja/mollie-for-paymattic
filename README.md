@@ -36,6 +36,12 @@ necessary hooks in the construct menthod.
 Go through the <b>settings/MollieElement.php</b> and do exactly by replacing your custom payment name.
 
 #### settings.php file
+
+In <b>__construct</b> method you need to pass key(which will beused as the method name), title, routes_query (keep it emtpy array), logo to create a global setting page. Do that by replaceing mollie with your custom payment in the same format.
+
+![consturct_method](setting_construct.png)
+
+
 settings.php file where you give all necessary global fileds to save the payments credentials: live/test public/secret keys to make your payment module actually works. This file need to extend the basepayment class of paymattic. implements all the function by replacing yours.
 
 In this file where you need to be little bit more careful is the <b>globalFields</b> method.
@@ -89,7 +95,7 @@ Most of the payment mehtod require ipn(Instant payment notification) setup to ma
 ##### methods
 - verifyIPN (after recieviing an ipn through our provided webhook it verifies if it is a real and authenticated ipn from desired payment gateway)
 - handleIpn (Handle the 
-- makeApiCall (Where it makes the api call with all the necessary authorization keys and arguments for any kind of payment api interaction)
+- makeApiCall (Where it makes the api call with all the necessary authorization keys and arguments for any kind of payment api interaction) you can 
 
 Implement all the methods of <b>API/IPN.php</b> file as usual and replace <b>mollie</b> with your cutom payment.
 
