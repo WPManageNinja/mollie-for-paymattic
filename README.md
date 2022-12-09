@@ -51,7 +51,7 @@ But field key of credential fields you can give as your payment module requires.
 
 Make sure you get api key settings as you set keys on global fields.
 
-![get_api_keys](api_keys.png)
+![get_api_keys](globalFields.png)
 
 rest, implement all the function as given on <b>settings/settings.php</b>
 
