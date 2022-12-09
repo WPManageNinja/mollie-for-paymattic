@@ -1,18 +1,18 @@
 # mollie-for-paymattic
 An example plugin for Paymattic payment module integrations.
 
-# procedure of integrating a custom payment module with paymattic
-Here we tried to show how to integrate a custom payment gateway with paymattic by showcasing payment gateway integration.
-As we did this demo with <b>mollie</b> payment gateway make sure you replace mollie with your <b>custom payment name </b> in all the hooks you find across all the files.
+# Procedure of integrating a custom payment module with paymattic
+Here we tried to show how to integrate a custom payment gateway/module with paymattic by showcasing <b>mollie</b> payment gateway integration.
+As we did this demo with <b>mollie</b>, please make sure you replace mollie with your <b>custom payment name </b> in all the hooks you find across all the files.
 
 ex: add_action('wppayform/form_submission_make_payment_mollie', array($this, 'makeFormPayment'), 10, 6); wiil be add_action('wppayform/form_submission_make_payment_custom_payment', array($this, 'makeFormPayment'), 10, 6);
 
 ## module structure
-- plugin file
-- settings
-- Api
+- plugin file (the primary file of your module)
+- settings (Mandatory settings)
+- Api (API interaction and IPN)
 
-### sample_payment_file.php
+### customo_payment_file.php
 In the main plugin file of the custom payment you need to do some mandatory checks and use the desired <b>wppayform_loaded</b> hook to trigger integrating your custome module. 
 
 ![base_file](base_file.png)
@@ -22,10 +22,10 @@ Go through the <b>mollie-for-paymattic.php</b> file to get it clear.
 
 ### settings directory
 To make your custom payment compatible and visible in paymattic you need to provide desired settings in a specific way. Setting constructed with two defferent file
-- Element.php
-- Settings.php
+- CustomElement.php
+- CustomSettings.php
 
-#### Element.php file
+#### CustomElement.php file
 Element.php file where you make your custom payment as a paymattic component. This file basically extend the BaseComponent file of Paymattic and add the 
 necessary hooks in the construct menthod.
 
@@ -35,7 +35,7 @@ necessary hooks in the construct menthod.
 
 Go through the <b>settings/MollieElement.php</b> and do exactly by replacing your custom payment name.
 
-#### settings.php file
+#### CustomSettings.php file
 
 In <b>__construct</b> method you need to pass key(which will beused as the method name), title, routes_query (keep it emtpy array), logo to create a global setting page. Do that by replaceing mollie with your custom payment in the same format.
 
@@ -68,11 +68,12 @@ rest, implement all the methods as given on <b>settings/settings.php</b> and rep
 
 ### API directory
 To process payments you needs api interaction and in some payment gateway you need ipn setup.
-- Process file
+- CustomProcessor file
 - IPN file
 
-#### process.php file
+#### CustomProcessor.php file
 All the primary and main payment process happens in this file.
+
 ##### methods
 - init (trigger all the necessary hooks and methods)
 - getPaymentMode 
