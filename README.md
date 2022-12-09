@@ -49,10 +49,10 @@ There are four, two(in some case, as here in mollie) credential field <b>type</b
 
 But field key of credential fields you can give as your payment module requires. ex: for mollie you need <b>test_api_key</b> and <b>live_api_key</b>.
 
-Make sure you get api key settings as you set keys on global fields.
+Make sure you get/validate api key settings with same keys as you set keys on global fields.
 
 ![get_api_keys](globalFields.png)
 
-rest, implement all the function as given on <b>settings/settings.php</b>
+rest, implement all the function as given on <b>settings/settings.php</b> and replace with your own.
 
 
