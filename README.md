@@ -26,7 +26,7 @@ To make your custom payment compatible and visible in paymattic you need to prov
 - CustomSettings.php
 
 #### CustomElement.php file
-Element.php file where you make your custom payment as a paymattic component. This file basically extend the BaseComponent file of Paymattic and add the 
+CustomElement.php file where you make your custom payment as a paymattic component. This file basically extend the BaseComponent file of Paymattic and add the 
 necessary hooks in the construct menthod.
 
 </br>
